@@ -141,37 +141,6 @@ public class Call extends Activity implements OnClickListener,Camera.PreviewCall
     
 	//プレビューサイズ調整
     public void previewSize(){
-    	/* 画像を保存するときの画像サイズを変更 *
-		//カメラパラメータオブジェクトの取得
-		Camera.Parameters param = camera.getParameters();
-		//カメラのピクチャーサイズを入れるインスタンス
-		Size pictureSize;
-		//プレビューサイズを入れる変数
-		Size previewSize;
-		//端末がサポートするpictureサイズを取得する
-		List<Size> supportedPictureSizes = param.getSupportedPictureSizes();
-		int i = 0;
-		for (Size size : supportedPictureSizes) {
-			System.out.println("縦の長さ：" + supportedPictureSizes.get(i).height + " 横の長さ：" + supportedPictureSizes.get(i).width);
-			i++;
-		}
-		//端末がサポートするプレビューサイズを取得する
-		i = 0;
-		List<Size> supportPreviewSizes = param.getSupportedPreviewSizes();
-		System.out.println("プレビューサイズ");
-		for (Size size : supportPreviewSizes) {
-			System.out.println("縦の長さ:" + supportPreviewSizes.get(i).height + " 横の長さ:" + supportPreviewSizes.get(i).width);
-			i++;
-		}
-		//縦の長さ480*横の長さ640
-		pictureSize = supportedPictureSizes.get(0);
-		previewSize = supportPreviewSizes.get(2);
-		//paramにサイズをセットする
-		param.setPictureSize(pictureSize.width, pictureSize.height);
-		param.setPreviewSize(previewSize.width, previewSize.height);
-		//cameraにサイズをsetする
-		camera.setParameters(param);
-		* 画像サイズ変更終了 */
     	
     	Camera.Parameters param = camera.getParameters();
 		param.setPreviewSize(640, 480);
