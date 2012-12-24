@@ -30,7 +30,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 //発信中
-public class Call extends Activity implements OnClickListener,Camera.PreviewCallback{//Camera.PictureCallback
+public class CallActivity extends Activity implements OnClickListener,Camera.PreviewCallback{//Camera.PictureCallback
 	
 	Timer timer;
 	int counter;
@@ -128,7 +128,7 @@ public class Call extends Activity implements OnClickListener,Camera.PreviewCall
 		//if(!onPicture) camera.takePicture(null,null,null,this);
 		//mp.stop();	//再生停止
         this.finish();	//このアクティビティを消滅する
-		Intent intent = new Intent(this, InCall.class);
+		Intent intent = new Intent(this, InCallActivity.class);
 		intent.putExtra("number", this.number);
 		intent.putExtra("startNum", this.startNum);
 		this.startActivity(intent);
@@ -159,56 +159,7 @@ public class Call extends Activity implements OnClickListener,Camera.PreviewCall
 		
 		takePreviewRawData();
     }
-/*	
-	@Override
-	//写真を撮った後、自動的に呼ばれる
-	public void onPictureTaken(byte[] data, Camera c) {
-		try{
-			// SDカードのディレクトリ
-	        File dir = Environment.getExternalStorageDirectory();
-	        // アプリ名で
-	        File appDir = new File(dir, "RecordVoice");
-	        // ディレクトリを作る
-	        if (!appDir.exists()) appDir.mkdir();
-	        // ファイル名（現在時刻.jpg)
-	        //String name = System.currentTimeMillis() + ".jpg";
-	        String name = "testImage.jpg";
-	        // 出力ファイルのパス
-	        String path = new File(appDir, name).getAbsolutePath();
-	        //String path = Environment.getExternalStorageDirectory()+ "/Android/" + System.currentTimeMillis()+ ".jpg";
-	        
-	        //写真データをファイルに書き込み
-			data2file(data,path);
-			
-			//ギャラリーに登録（APIレベル8）
-			//第1引数:context,第2引数:path配列,第3引数:MimeType配列,第4引数:OnScanCompletedリスナー
-			String[] paths = {path};
-			String[] mimeTypes = {"image/jpeg"};
-			MediaScannerConnection.scanFile(this, paths, mimeTypes, sc);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		//プレビュー再開
-		//camera.startPreview();
-	}
-	
-	//写真データをファイルに書き込み
-    private void data2file(byte[] data,String fileName) throws Exception {
-        FileOutputStream out=null;
-        try {
-            out=new FileOutputStream(fileName);
-            out.write(data);
-            out.close();
-        } catch (Exception e) {
-            if (out!=null) {
-            	out.close();
-            }
-            throw e;
-        }
-    }
-*/
-	
+
 	
 	//ギャラリーに登録したあと呼ばれる
     OnScanCompletedListener sc = new OnScanCompletedListener() {
@@ -338,31 +289,7 @@ public class Call extends Activity implements OnClickListener,Camera.PreviewCall
         mProgressFlag = false;
 	}
 	
-/*	
-	public static final void decodeYUV420SP(int[] rgb, byte[] yuv420sp, int width, int height) {
-		Log.d("","rgb:"+rgb.length + " yuv420sp:"+yuv420sp.length + " width:"+width + " height:"+height);
-		final int frameSize = width * height;
-		for (int j = 0, yp = 0; j < height; j++) {
-			int uvp = frameSize + (j >> 1) * width, u = 0, v = 0;
-			for (int i = 0; i < width; i++, yp++) {
-				int y = (0xff & ((int) yuv420sp[yp])) - 16;
-				if (y < 0) y = 0;
-				if ((i & 1) == 0) {
-					v = (0xff & yuv420sp[uvp++]) - 128;
-					u = (0xff & yuv420sp[uvp++]) - 128;
-				}
-				int y1192 = 1192 * y;
-				int r = (y1192 + 1634 * v);
-				int g = (y1192 - 833 * v - 400 * u);
-				int b = (y1192 + 2066 * u);
-				if (r < 0) r = 0; else if (r > 262143) r = 262143;
-				if (g < 0) g = 0; else if (g > 262143) g = 262143;
-				if (b < 0) b = 0; else if (b > 262143) b = 262143;
-				rgb[yp] = 0xff000000 | ((r << 6) & 0xff0000) | ((g >> 2) & 0xff00) | ((b >> 10) & 0xff);
-			}
-		}
-	}
-*/	
+
 	public static int[] decodeYUV(byte[] tempData, int width, int height) throws NullPointerException, IllegalArgumentException {
         int size = width * height;
         if (tempData == null) {

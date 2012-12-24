@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 //ロック画面
-public class Lock extends Activity{
+public class LockActivity extends Activity{
 	
 	Button button;
 	ImageView dragView;
@@ -24,22 +24,13 @@ public class Lock extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.lock);
+        //マナーモードを解除する
+        SoundControl soundCon = new SoundControl();
+        soundCon.setRingerMode(this);
         
         // 画面のロックを防ぐ
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         
-	}
-
-//	//ロック解除ボタンでCallクラスへ移動
-//	public void kaijo(View v){
-//		Intent intent = new Intent(this, Call.class);
-//		//Intent intent = new Intent(this, Sorry.class);
-//		this.startActivity(intent);
-//		//this.finish();	//このアクティビティを消滅する
-//	}
-	
-	//test用
-	public void test(View v){
 	}
 
 	//メニューから設定画面へ（もしものために実装）
@@ -83,15 +74,6 @@ public class Lock extends Activity{
 		}
 	}
 
-	
-	
-	//アプリ終了のダブルクリック
-	//sdカードマウントエラーなど
-	//電源ボタン押したときの処理
-	//音量調整、マナーモード→設定画面を作る
-	//端末解像度にあったボタン位置に調整
-	//ホーム切り替え（端末依存）
-	//画像回転方向（端末依存）
 	
 
 }

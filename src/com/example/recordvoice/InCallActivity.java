@@ -22,7 +22,7 @@ import android.view.View;
 import android.widget.TextView;
 
 //通話中
-public class InCall extends Activity {
+public class InCallActivity extends Activity {
 	
 	Timer timer;
 	int counter;
@@ -167,7 +167,7 @@ public class InCall extends Activity {
 		scan();		//ギャラリー登録
 		
 		this.finish();	//このアクティビティを消滅する
-		Intent intent = new Intent(this, Joke.class);
+		Intent intent = new Intent(this, JokeActivity.class);
 		intent.putExtra("number", this.number);
 		intent.putExtra("startNum", this.startNum);
 		this.startActivity(intent);

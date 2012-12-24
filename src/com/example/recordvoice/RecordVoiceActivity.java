@@ -18,7 +18,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class CopyOfRecordVoice extends Activity {
+public class RecordVoiceActivity extends Activity {
     private MediaRecorder mRecorder;
 
     private TextView txtView;
@@ -42,9 +42,6 @@ public class CopyOfRecordVoice extends Activity {
 		    	vibrate();
 			}
         });
-        //起動時に音声+バイブ
-        voice();
-        vibrate();
     }
     // Startボタン（録音開始）
     public void onClickStartButton(View view) {
@@ -60,7 +57,7 @@ public class CopyOfRecordVoice extends Activity {
         if (!appDir.exists()) appDir.mkdir();
         // ファイル名
         //String name = dirName + System.currentTimeMillis() + ".3gp";
-        String name = "testVoice" + ".3gp";
+        String name = "joke" + 0 + ".3gp";
         // 出力ファイルのパス
         String path = new File(appDir, name).getAbsolutePath();
 

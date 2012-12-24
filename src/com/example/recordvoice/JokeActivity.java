@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 //ネタばらし
-public class Joke extends Activity {
+public class JokeActivity extends Activity {
 
 	private ImageView iv;
 	String path;
@@ -128,7 +128,7 @@ public class Joke extends Activity {
 	//ごめんなさいボタンでSorryアクティビティへ
 	public void sorryOnClick(View v){
 		this.finish();	//このアクティビティを消滅する
-		Intent intent = new Intent(this, Sorry.class);
+		Intent intent = new Intent(this, SorryActivity.class);
 		this.startActivity(intent);
 	}
 	

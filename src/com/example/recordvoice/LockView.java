@@ -23,11 +23,11 @@ public class LockView extends View {
     private int height;
     //private Drawable image;
     private Bitmap image;
-    Lock lock;
+    LockActivity lock;
     
     public LockView(Context context, AttributeSet attrs){
     	super(context, attrs);
-    	this.lock = (Lock)context;
+    	this.lock = (LockActivity)context;
     	
     	// リソースの画像ファイルの読み込み
         Resources r = context.getResources();
@@ -43,32 +43,8 @@ public class LockView extends View {
 
 	@Override
 	protected void onDraw(Canvas canvas) {
-//		// イメージ描画
-//        canvas.drawBitmap(image, 0, 0, null);
-//        
-//        int w = image.getWidth();
-//        int h = image.getHeight();
-//        // 描画元の矩形イメージ
-//        Rect src = new Rect(0, 0, w, h);
-//        // 描画先の矩形イメージ
-//        Rect dst = new Rect(0, 200, w*2, 200 + h*2);
-//        canvas.drawBitmap(image, src, dst, null);
-		
 		canvas.drawBitmap(image, left, 0, new Paint());
 	}
-
-//	@Override
-//	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-////		// 引数の情報から画面の横方向の描画領域のサイズを取得する
-//	    int width = MeasureSpec.getSize(widthMeasureSpec);
-//	    int height = MeasureSpec.getSize(heightMeasureSpec);
-////	    // Viewの描画サイズを横方向を画面端まで使う指定
-//	    setMeasuredDimension(width,height);
-//		
-//		//setMeasuredDimension(width,height);
-//	}
-
     
 	
 	int left = -400;
@@ -111,7 +87,7 @@ public class LockView extends View {
 	//ロック解除ボタンでCallクラスへ移動
 	public void kaijo(){
 		//lock.finish();	//このアクティビティを消滅する
-		Intent intent = new Intent(lock, Call.class);
+		Intent intent = new Intent(lock, CallActivity.class);
 		lock.startActivity(intent);
 	}
 }
