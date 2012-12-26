@@ -34,7 +34,9 @@ public class SorryActivity extends Activity implements SensorEventListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sorry);
-        
+        //マナーモードを解除する
+        SoundControl soundCon = new SoundControl(this);
+        soundCon.setNormalRinger();
         //センサーオブジェクト作成
         sensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
         

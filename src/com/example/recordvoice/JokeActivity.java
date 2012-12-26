@@ -32,7 +32,10 @@ public class JokeActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.joke);
-        
+        //マナーモードを解除する
+        SoundControl soundCon = new SoundControl(this);
+        soundCon.setNormalRinger();
+        soundCon.setMaxVolume();
         // 画面のロックを防ぐ
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         

@@ -32,6 +32,9 @@ public class RecordVoiceActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        //マナーモードを解除する
+        SoundControl soundCon = new SoundControl(this);
+        soundCon.setNormalRinger();
         
         txtView = (TextView)findViewById(R.id.txtView01);
         btn = (Button)this.findViewById(R.id.button1);

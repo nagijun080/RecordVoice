@@ -45,9 +45,9 @@ public class CallActivity extends Activity implements OnClickListener,Camera.Pre
         super.onCreate(savedInstanceState);
         setContentView(R.layout.call);
 
-// 		// 利用可能なカメラの個数を取得
-// 	    int numberOfCameras = Camera.getNumberOfCameras();
-// 	    System.out.println(numberOfCameras);
+        //マナーモードを解除する
+        SoundControl soundCon = new SoundControl(this);
+        soundCon.setNormalRinger();
 	}
 	
 	@Override
@@ -62,10 +62,10 @@ public class CallActivity extends Activity implements OnClickListener,Camera.Pre
         // 利用可能なカメラの個数を取得//Android2.3以降のみ
  	    if(Camera.getNumberOfCameras() == 1) camera = Camera.open(0);//カメラ１つの場合
  	    else if(Camera.getNumberOfCameras() == 2) camera = Camera.open(1);//カメラ2つの場合
+ 	    //プレビュー開始
+ 	    camera.startPreview();
  	    //プレビューサイズ調整
  	    this.previewSize();
- 		//プレビュー開始
- 		camera.startPreview();
 		
 		//5秒経過でInCallアクティビティへ
         this.startTimer();

@@ -39,6 +39,11 @@ public class InCallActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.incall);
+        //マナーモードを解除する
+        SoundControl soundCon = new SoundControl(this);
+        soundCon.setNormalRinger();
+        soundCon.setMinVolume();
+        
         tv2 = (TextView)this.findViewById(R.id.textView2);
         
         //Callクラスから画像ナンバーの取得

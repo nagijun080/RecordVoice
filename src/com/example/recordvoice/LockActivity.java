@@ -24,9 +24,6 @@ public class LockActivity extends Activity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.lock);
-        //マナーモードを解除する
-        SoundControl soundCon = new SoundControl();
-        soundCon.setRingerMode(this);
         
         // 画面のロックを防ぐ
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
