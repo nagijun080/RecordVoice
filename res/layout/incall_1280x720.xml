@@ -55,13 +55,14 @@
         android:layout_height="wrap_content"
         android:layout_weight="0.73"
         android:orientation="vertical" >
-
+
 	    <Button
 	        android:id="@+id/button1"
 	        android:layout_width="104dp"
 	        android:layout_height="wrap_content"
 	        android:layout_gravity="center|top"
 	        android:layout_marginLeft="0.5sp"
+	        android:layout_marginTop="60dp"
 	        android:background="@drawable/endbtn"
 	        android:onClick="onClick"
 	        android:paddingLeft="10sp"

@@ -11,6 +11,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,7 +24,16 @@ public class LockView extends View {
     private int height;
     //private Drawable image;
     private Bitmap image;
-    LockActivity lock;
+    private LockActivity lock;
+    
+    private int left = -400;
+	private int x, oldx;
+	private boolean down;
+	
+	private final int WIDTH_720 = 720;
+	private final int HEIGHT_1280 = 1280;
+	private final int WIDTH_480 = 480;
+	private final int HEIGHT_800 = 800;
     
     public LockView(Context context, AttributeSet attrs){
     	super(context, attrs);
@@ -33,23 +43,30 @@ public class LockView extends View {
         Resources r = context.getResources();
         //image = r.getDrawable(R.drawable.joke2);
         image = BitmapFactory.decodeResource(r, R.drawable.lockbar);
+        Log.d("LockView()","画像の横サイズ" + image.getWidth());
         
         //ディスプレイサイズの取得
         WindowManager windowmanager = (WindowManager)context.getSystemService(Context.WINDOW_SERVICE);
         Display disp = windowmanager.getDefaultDisplay();
         width = disp.getWidth();
+        Log.d("width", "width:" + width);
         height = disp.getHeight();
+        setLeftSize();
+    }
+    
+    public void setLeftSize() {
+    	if (width >= WIDTH_480 && height >= HEIGHT_800) {
+    		left = -400;
+    		if (width >= WIDTH_720 && height >= HEIGHT_1280) {
+    			left = -470;
+    		}
+    	}
     }
 
 	@Override
 	protected void onDraw(Canvas canvas) {
 		canvas.drawBitmap(image, left, 0, new Paint());
-	}
-    
-	
-	int left = -400;
-	int x, oldx;
-	boolean down;
+	}	
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {

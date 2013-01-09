@@ -7,6 +7,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -17,8 +18,10 @@ import android.media.MediaScannerConnection.OnScanCompletedListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 //通話中
@@ -43,6 +46,16 @@ public class InCallActivity extends Activity {
         SoundControl soundCon = new SoundControl(this);
         soundCon.setNormalRinger();
         soundCon.setMinVolume();
+        
+        //ディスプレイサイズの取得
+        WindowManager windowmanager = (WindowManager)this.getSystemService(Context.WINDOW_SERVICE);
+        Display disp = windowmanager.getDefaultDisplay();
+        if (disp.getWidth() >= 480) {
+        	setContentView(R.layout.incall);
+        	if (disp.getWidth() >= 720) {
+        		setContentView(R.layout.incall_1280x720);
+        	}
+        }
         
         tv2 = (TextView)this.findViewById(R.id.textView2);
         
