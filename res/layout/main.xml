@@ -1,49 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
     
-    <TextView
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:text="@string/hello"
-	    android:id="@+id/txtView01" >
-	</TextView>
-    
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:orientation="horizontal"
-	    android:id="@+id/linerLayout1" >
-	    
-	    <Button
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:text="録音スタート"
-		    android:onClick="onClickStartButton" >
-		</Button>
-		<Button
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:text="録音ストップ"
-		    android:onClick="onClickStopButton" >
-		</Button>
-	</LinearLayout>
-	
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:orientation="horizontal"
-	    android:id="@+id/linerLayout2" >
-	    
-	    <Button
-	        android:id="@+id/button1"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:text="再生スタート" >
-		</Button>
-		
-	</LinearLayout>
+	<Button
+        android:id="@+id/settingBTN"
+        android:onClick="setting"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="61dp"
+        android:layout_height="40dp"
+        android:layout_weight="0.39"
+        android:background="@drawable/toumei_btn2"
+        android:text="" />
 
 </LinearLayout>

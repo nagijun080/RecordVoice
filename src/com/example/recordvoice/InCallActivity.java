@@ -188,7 +188,8 @@ public class InCallActivity extends Activity {
 		Intent intent = new Intent(this, JokeActivity.class);
 		intent.putExtra("number", this.number);
 		intent.putExtra("startNum", this.startNum);
-		this.startActivity(intent);
+		//this.startActivity(intent);
+		((ActivityGroupMain)getParent()).startInnerActivity("JokeActivity", intent);
 	}
 	
 	public void scan(){

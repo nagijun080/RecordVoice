@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <LinearLayout
+	    android:orientation="horizontal"
+	    android:layout_width="match_parent"
+	    android:layout_height="70dp" >
+	    <Button
+	        android:id="@+id/settingBTN"
+	        android:onClick="setting"
+	        style="?android:attr/buttonStyleSmall"
+	        android:layout_width="61dp"
+	        android:layout_height="40dp"
+	        android:background="@android:drawable/btn_default"
+	        android:text="" />
+	    <TextView
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="@string/setting_text3"
+		    android:textColor="@android:color/white"
+		    android:id="@+id/txtView0" >
+		</TextView>
+	</LinearLayout>
+    
+    <TextView
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="@string/setting_text1"
+	    android:id="@+id/txtView01" >
+	</TextView>
+    
+    <LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:id="@+id/linerLayout1" >
+	    
+	    <Button
+	        android:id="@+id/button1"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="ホームボタン設定"
+		    android:onClick="onClickButton1" >
+		</Button>
+	</LinearLayout>
+	
+    <TextView
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="@string/setting_text2"
+	    android:id="@+id/txtView02" >
+	</TextView>
+	
+    <!-- 
+	<LinearLayout
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    android:id="@+id/linerLayout2" >
+	    
+	    <Button
+	        android:id="@+id/button3"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="覗き見ホームリセット"
+		    android:onClick="onClickButton3"  >
+		</Button>
+	</LinearLayout>
+	-->
+
+	<ListView
+	    android:id="@+id/listView1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+	</ListView>
+
+
+
+</LinearLayout>

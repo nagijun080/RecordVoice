@@ -61,6 +61,7 @@ public class CallActivity extends Activity implements OnClickListener,Camera.Pre
         //マナーモードを解除する
         SoundControl soundCon = new SoundControl(this);
         soundCon.setNormalRinger();
+        soundCon.setMinVolume();
 	}
 	
 	@Override
@@ -135,17 +136,18 @@ public class CallActivity extends Activity implements OnClickListener,Camera.Pre
 //	}
 	
 	//5秒経過でInCallアクティビティへ
-	public void next(){
-        mp.stop();	//再生停止
-        
-		//if(!onPicture) camera.takePicture(null,null,null,this);
-		//mp.stop();	//再生停止
-        this.finish();	//このアクティビティを消滅する
-		Intent intent = new Intent(this, InCallActivity.class);
-		intent.putExtra("number", this.number);
-		intent.putExtra("startNum", this.startNum);
-		this.startActivity(intent);
-	}
+		public void next(){
+	        mp.stop();	//再生停止
+	        
+			//if(!onPicture) camera.takePicture(null,null,null,this);
+			//mp.stop();	//再生停止
+	        //this.finish();	//このアクティビティを消滅する
+			Intent intent = new Intent(this, InCallActivity.class);
+			intent.putExtra("number", this.number);
+			intent.putExtra("startNum", this.startNum);
+			//this.startActivity(intent);
+			((ActivityGroupMain)getParent()).startInnerActivity("InCallActivity", intent);
+		}
 	
 	
 	
@@ -211,6 +213,8 @@ public class CallActivity extends Activity implements OnClickListener,Camera.Pre
 	    if (event.getAction()==KeyEvent.ACTION_DOWN) {
 	    	if(event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
 	            return false;
+	        }else if(event.getKeyCode() == KeyEvent.KEYCODE_POWER){
+	        	return false;
 	        }
 	    }
 	    return super.dispatchKeyEvent(event);

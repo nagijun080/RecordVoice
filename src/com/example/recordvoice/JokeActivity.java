@@ -144,7 +144,7 @@ public class JokeActivity extends Activity {
 	public void sorryOnClick(View v){
 		this.finish();	//このアクティビティを消滅する
 		Intent intent = new Intent(this, SorryActivity.class);
-		this.startActivity(intent);
+		((ActivityGroupMain)getParent()).startInnerActivity("JokeActivity", intent);
 	}
 	
 	//アクティビティ終了時

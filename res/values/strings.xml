@@ -2,4 +2,7 @@
 <resources>
     <string name="hello">Hello World, RecordVoice!</string>
     <string name="app_name">のぞくな危険!?</string>
+    <string name="setting_text1">「ホームボタン設定」を押して、「常にこの操作で使用する」にチェックを入れ、「のぞくな危険!?」をホームボタンのデフォルトに設定してください。</string>
+    <string name="setting_text2">既にホームなどをデフォルト設定されている場合は、下記リストから該当のものを選択し「デフォルトでの起動」を解除して、上記の操作を行ってください。</string>
+    <string name="setting_text3">←各画面のこの場所に隠しボタンがあります。２回押すことで画面を閉じることができます。</string>
 </resources>
