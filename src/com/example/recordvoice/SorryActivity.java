@@ -44,11 +44,11 @@ public class SorryActivity extends Activity implements SensorEventListener{
         this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         
         tv = (TextView)findViewById(R.id.count);
-	}
-	
-	//アクティビティが動き始めたらリスナーを登録する
-    public void onResume() {
-    	super.onResume();
+//	}
+//	
+//	//アクティビティが動き始めたらリスナーを登録する
+//    public void onResume() {
+//    	super.onResume();
     	//カウントアップスタート
         startTimer();
     	//加速度センサーリストを取得

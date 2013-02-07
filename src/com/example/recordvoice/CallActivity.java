@@ -51,6 +51,8 @@ public class CallActivity extends Activity implements OnClickListener,Camera.Pre
         //ディスプレイサイズの取得
         WindowManager windowmanager = (WindowManager)this.getSystemService(Context.WINDOW_SERVICE);
         Display disp = windowmanager.getDefaultDisplay();
+        
+        Log.d("CallActivity","横幅:"+String.valueOf(disp.getWidth()));
         if (disp.getWidth() >= 480) {
         	setContentView(R.layout.call_800x480);
         	if (disp.getWidth() >= 720) {
@@ -62,11 +64,11 @@ public class CallActivity extends Activity implements OnClickListener,Camera.Pre
         SoundControl soundCon = new SoundControl(this);
         soundCon.setNormalRinger();
         soundCon.setMinVolume();
-	}
-	
-	@Override
-	protected void onResume() {
-		super.onResume();
+//	}
+//	
+//	@Override
+//	protected void onResume() {
+//		super.onResume();
 		
         //終了ボタン（写真を撮る）
         button = (Button)this.findViewById(R.id.button1);

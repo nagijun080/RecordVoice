@@ -8,7 +8,7 @@ public class SoundControl {
 	
 	private AudioManager am;
 	private final static int MIN_VOL = 7;
-	private final static int MAX_VOL = 10;
+	private final static int MAX_VOL = 15;
 	
 	public SoundControl (Context context) {
 		// AudioManager取得

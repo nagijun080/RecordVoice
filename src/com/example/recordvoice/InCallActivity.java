@@ -18,6 +18,7 @@ import android.media.MediaScannerConnection.OnScanCompletedListener;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.View;
@@ -50,11 +51,8 @@ public class InCallActivity extends Activity {
         //ディスプレイサイズの取得
         WindowManager windowmanager = (WindowManager)this.getSystemService(Context.WINDOW_SERVICE);
         Display disp = windowmanager.getDefaultDisplay();
-        if (disp.getWidth() >= 480) {
-        	setContentView(R.layout.incall);
-        	if (disp.getWidth() >= 720) {
-        		setContentView(R.layout.incall_1280x720);
-        	}
+        if (disp.getWidth() >= 720) {
+        	setContentView(R.layout.incall_1280x720);
         }
         
         tv2 = (TextView)this.findViewById(R.id.textView2);
@@ -65,11 +63,11 @@ public class InCallActivity extends Activity {
         	this.number = extras.getInt("number");
         	this.startNum = extras.getInt("startNum");
         }
-	}
-	
-	@Override
-	protected void onResume() {
-		super.onResume();
+//	}
+//	
+//	@Override
+//	protected void onResume() {
+//		super.onResume();
 		
         //10秒経過でJokeアクティビティへ
         this.startTimer();
@@ -184,7 +182,7 @@ public class InCallActivity extends Activity {
 		recStop();	//録音停止
 		scan();		//ギャラリー登録
 		
-		this.finish();	//このアクティビティを消滅する
+		//this.finish();	//このアクティビティを消滅する
 		Intent intent = new Intent(this, JokeActivity.class);
 		intent.putExtra("number", this.number);
 		intent.putExtra("startNum", this.startNum);

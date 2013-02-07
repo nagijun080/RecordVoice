@@ -86,7 +86,7 @@ public class LockView extends View {
 			}
 			if(down && x>(width*6/10)){
 				down = false;
-				kaijo();
+				lock.kaijo();
 			}
 			break;
 		case MotionEvent.ACTION_UP:
